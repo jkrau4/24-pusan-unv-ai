@@ -24,3 +24,5 @@ for k = 1:N
   v = W*x;
   y = Sigmoid(v)
 end
+
+

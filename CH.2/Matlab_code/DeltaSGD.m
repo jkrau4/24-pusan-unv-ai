@@ -19,3 +19,4 @@ function W = DeltaSGD(W, X, D)
       W(3) = W(3) + dW(3);    
     end
   end
+
