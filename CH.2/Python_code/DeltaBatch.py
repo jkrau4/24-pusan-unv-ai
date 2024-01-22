@@ -1,5 +1,5 @@
 import numpy as np
-import Sigmoid
+from Sigmoid import Sigmoid
 
 def DeltaBatch(W, X, D):
     alpha = 0.9

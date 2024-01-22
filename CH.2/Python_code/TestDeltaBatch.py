@@ -1,6 +1,6 @@
 import numpy as np
-import Sigmoid
-import DeltaBatch
+from Sigmoid import Sigmoid
+from DeltaBatch import DeltaBatch
 
 X = np.array([[0, 0, 1],
               [0, 1, 1],

@@ -1,6 +1,6 @@
 import numpy as np
-import DeltaSGD
-import Sigmoid
+from DeltaSGD import DeltaSGD
+from Sigmoid import Sigmoid
 
 def TestDeltaSGD():
     X = np.array([[0, 0, 1],
