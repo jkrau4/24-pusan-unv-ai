@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib as plt
 from Sigmoid import Sigmoid
 from DeltaSGD import DeltaSGD
 from DeltaBatch import DeltaBatch
@@ -40,3 +41,10 @@ for epoch in range(1000):
         
     E1[epoch] = es1/N
     E2[epoch] = es2/N
+
+SGD, = plt.plot(E1, 'r')
+Batch, = plt.plot(E2, 'b:')
+plt.xlabel("Epoch")
+plt.ylabel("Average of Training Error")
+plt.legend([SGD, Batch], ['SGD', 'Batch'])
+plt.show()
