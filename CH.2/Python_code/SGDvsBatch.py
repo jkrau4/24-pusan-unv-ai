@@ -1,7 +1,7 @@
 import numpy as np
-import Sigmoid
-import DeltaSGD
-import DeltaBatch
+from Sigmoid import Sigmoid
+from DeltaSGD import DeltaSGD
+from DeltaBatch import DeltaBatch
 
 X = np.array([[0, 0, 1],
               [0, 1, 1],

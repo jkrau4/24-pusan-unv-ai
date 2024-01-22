@@ -1,6 +1,6 @@
 import numpy as np
-import Sigmoid
-import DeltaXOR
+from Sigmoid import Sigmoid
+from DeltaXOR import DeltaXOR
 
 def TestDeltaXOR():
     X = np.array([[0, 0, 1],

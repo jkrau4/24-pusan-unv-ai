@@ -1,5 +1,5 @@
 import numpy as np
-import Sigmoid
+from Sigmoid import Sigmoid
 
 
 def DeltaSGD(W, X, D):
