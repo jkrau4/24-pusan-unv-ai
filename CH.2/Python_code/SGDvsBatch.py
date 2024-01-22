@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from Sigmoid import Sigmoid
 from DeltaSGD import DeltaSGD
 from DeltaBatch import DeltaBatch
