@@ -1,3 +1,6 @@
+import numpy as np
+from Sigmoid import Sigmoid
+
 def BackpropCE(W1, W2, X, D):
     alpha = 0.9
     N = 4
