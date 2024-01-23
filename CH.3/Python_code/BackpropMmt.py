@@ -21,14 +21,14 @@ def BackpropMmt(W1, W2, X, D):
         e = d - y
         delta = y*(1-y)*e
 
-        e1 = W2*delta
+        e1 = np.matmul((W2.T), delta)
         delta1 = y1*(1-y1)*e1
-        dW1 = alpha*delta1*x
+
+        dW1 = (alpha * delta1).reshape(4,1) * x.T
         mmt1 = dW1 + beta*mmt1
         W1 = W1 + mmt1
 
-        dW2 = alpha*delta*y1.T
+        dW2 = (alpha * delta) * y1.T
         mmt2 = dW2 + beta*mmt2
         W2 = W2 + mmt2
-
     return W1, W2
