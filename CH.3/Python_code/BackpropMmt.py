@@ -1,7 +1,7 @@
 import numpy as np
 from Sigmoid import Sigmoid
 
-def BackpropMnt(W1, W2, X, D):
+def BackpropMmt(W1, W2, X, D):
     alpha = 0.9
     beta = 0.9
 
