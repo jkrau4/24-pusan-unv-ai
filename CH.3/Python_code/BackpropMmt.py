@@ -22,19 +22,6 @@ def BackpropMmt(W1, W2, X, D):
         e = d - y # scalar
         delta = y * (1-y) * e # scalar
 
-<<<<<<< Updated upstream
-        e1 = np.matmul((W2.T), delta)
-        delta1 = y1*(1-y1)*e1
-
-        dW1 = (alpha * delta1).reshape(4,1) * x.T
-        mmt1 = dW1 + beta*mmt1
-        W1 = W1 + mmt1
-
-        dW2 = (alpha * delta) * y1.T
-        mmt2 = dW2 + beta*mmt2
-        W2 = W2 + mmt2
-    return W1, W2
-=======
         e1 = W2 * delta # (1, 4)
         delta1 = y1 * (1 - y1) *e1 # (1, 4)
 
@@ -47,4 +34,3 @@ def BackpropMmt(W1, W2, X, D):
         W2  = W2 + mmt2 # (1, 4)
 
     return W1, W2   # (4, 3), (1, 4)
->>>>>>> Stashed changes
