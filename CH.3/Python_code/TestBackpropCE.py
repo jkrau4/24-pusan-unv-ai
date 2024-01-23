@@ -16,7 +16,7 @@ def TestBackpropCE():
   W2 = 2*np.random.random((1, 4)) - 1
         
   for epoch in range(10000):
-     W1, W2 = BackpropXOR(W1, W2, X, D)
+     W1, W2 = BackpropCE(W1, W2, X, D)
                 
   N = 4
   for k in range(N):
