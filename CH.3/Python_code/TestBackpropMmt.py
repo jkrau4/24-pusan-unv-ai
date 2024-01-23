@@ -16,7 +16,7 @@ def TestBackpropMmt():
   W1 = 2*np.random.random((4, 3)) - 1
   W2 = 2*np.random.random((1, 4)) - 1
         
-  for epoch in range(5500):
+  for epoch in range(10000):
      W1, W2 = BackpropMmt(W1, W2, X, D)
                 
   N = 4
