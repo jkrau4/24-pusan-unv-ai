@@ -1,7 +1,7 @@
 import numpy as np
 from Sigmoid import Sigmoid
 
-def BackpropMnt(W1, W2, X, D):
+def BackpropMmt(W1, W2, X, D):
     alpha = 0.9
     beta = 0.9
 
@@ -23,11 +23,12 @@ def BackpropMnt(W1, W2, X, D):
 
         e1 = W2*delta
         delta1 = y1*(1-y1)*e1
-        dW1 = alpha*delta*x.T
+        dW1 = alpha*delta1*x
         mmt1 = dW1 + beta*mmt1
         W1 = W1 + mmt1
 
         dW2 = alpha*delta*y1.T
         mmt2 = dW2 + beta*mmt2
         W2 = W2 + mmt2
+
     return W1, W2
