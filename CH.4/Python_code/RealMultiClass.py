@@ -1,10 +1,13 @@
 import numpy as np
-from MultiClass import MultiClass
 from Softmax import Softmax
 from Sigmoid import Sigmoid
+from TestMultiClass import TestMultiClass
 
-def TestMultiClass():
-    X = np.zeros(5, 5, 5)
+
+
+def RealMultiClass():
+    W1, W2 = TestMultiClass()
+    X = np.zeros((5, 5, 5))
 
     X[:, :, 0] = np.array([[0, 0, 1, 1, 0],
                         [0, 0, 1, 1, 0],
@@ -36,6 +39,7 @@ def TestMultiClass():
                         [0, 0, 0, 1, 0],
                         [1, 1, 1, 1, 0]])
     
+    
     N = 5
     for k in range(N):
         a = X[:, :, k]
@@ -46,4 +50,4 @@ def TestMultiClass():
         y = Softmax(v)
         print(y)
 
-TestMultiClass()
+RealMultiClass()
