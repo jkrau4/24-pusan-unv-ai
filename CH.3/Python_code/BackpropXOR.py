@@ -1,17 +1,17 @@
 import numpy as np
 from Sigmoid import Sigmoid
 
-def BackpropXOR(w1,W2,X,D):
+def BackpropXOR(W1,W2,X,D):
     alpha = 0.9
 
     N = 4
     for k in range(N):
-        x = X[k,:]
+        x = X[k,:].T
         d = D[k]
 
-        v1 = w1 * x
+        v1 = np.matmul(W1, x)
         y1 = Sigmoid(v1)
-        v = W2 * y1
+        v = np.matmul(W2, y1)
         y = Sigmoid(v)
 
         e = d - y
@@ -20,9 +20,9 @@ def BackpropXOR(w1,W2,X,D):
         e1 = W2 * delta
         delta1 = y1 * (1-y1) * e1
         
-        dw1 = alpha * delta1 * x
-        w1 = w1 + dw1
+        dW1 = (alpha * delta1).reshape(4, 1) * x.T
+        W1 = W1 + dW1
 
-        dw2 = alpha * delta * y1
-        w2 = w2 + dw2
-    return w1, w2
+        dW2 = alpha * delta * y1.T
+        W2 = W2 + dW2
+    return W1, W2
