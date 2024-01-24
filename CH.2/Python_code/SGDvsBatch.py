@@ -14,8 +14,8 @@ D = np.array([[0],
               [1],
               [1]])
 
-E1 = np.zeros(1000)
-E2 = np.zeros(1000)
+E1 = []
+E2 = []
 
 W1 = 2*np.random.random((1, 3)) - 1
 W2 = np.array(W1)
@@ -39,8 +39,8 @@ for epoch in range(1000):
         y2 = Sigmoid(v2)
         es2 = es2 + (d - y2)**2
         
-    E1[epoch] = es1/N
-    E2[epoch] = es2/N
+    E1.append(es1/N)
+    E2.append(es2/N)
 
 SGD, = plt.plot(E1, 'r')
 Batch, = plt.plot(E2, 'b:')
