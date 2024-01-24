@@ -38,20 +38,20 @@ for epoch in range(1000):
         y1 = Sigmoid(v1)
         v = np.matmul(W12, y1)
         y = Sigmoid(v)
-        es1 = es1 + (d - y1)**2
+        es1 = es1 + (d - y)**2
         
         v2 = np.matmul(W21, x)
         y2 = Sigmoid(v2)
         v = np.matmul(W22, y1)
         y = Sigmoid(v)
-        es2 = es2 + (d - y2)**2
+        es2 = es2 + (d - y)**2
         
     E1[epoch] = es1/N
     E2[epoch] = es2/N
 
-SGD, = plt.plot(E1, 'r')
-Batch, = plt.plot(E2, 'b:')
+CE, = plt.plot(E1, 'r')
+SSE, = plt.plot(E2, 'b:')
 plt.xlabel("Epoch")
 plt.ylabel("Average of Training Error")
-plt.legend([SGD, Batch], ['SGD', 'Batch'])
+plt.legend([CE, SSE], ['CE', 'SSE'])
 plt.show()
