@@ -19,13 +19,29 @@ test_labels = to_categorical(test_labels)
 
 # Build the convolutional neural network model
 model = models.Sequential()
-model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+model.add(layers.Conv2D(64, (3, 3), activation = 'relu', input_shape = (28, 28, 1), padding = 'same'))
+model.add(layers.BatchNormalization())
+model.add(layers.Dropout(0.35))
+model.add(layers.Conv2D(128, (3, 3), activation = 'relu'))
+model.add(layers.BatchNormalization())
+model.add(layers.Conv2D(256, (3, 3), activation = 'relu'))
+model.add(layers.BatchNormalization())
 model.add(layers.MaxPooling2D((2, 2)))
-model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+model.add(layers.Dropout(0.35))
+model.add(layers.Conv2D(512, (3, 3), activation = 'relu', input_shape = (28, 28, 1), padding = 'same'))
+model.add(layers.BatchNormalization())
+model.add(layers.Dropout(0.35))
+model.add(layers.Conv2D(1024, (3, 3), activation='relu'))
+model.add(layers.BatchNormalization())
+model.add(layers.Dropout(0.35))
+model.add(layers.Conv2D(2000, (3, 3), activation = 'relu', input_shape = (28, 28, 1), padding = 'same'))
+model.add(layers.BatchNormalization())
 model.add(layers.MaxPooling2D((2, 2)))
-model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.Dropout(0.35))
+
 model.add(layers.Flatten())
-model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(512, activation='relu'))
 model.add(layers.Dense(10, activation='softmax'))
 
 # Compile the model
@@ -39,6 +55,3 @@ model.fit(train_images, train_labels, epochs=5, batch_size=64, validation_split=
 # Evaluate the model on the test set
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(f'Test accuracy: {test_acc}')
-
-# Save the model
-model.save('mnist_model.h5')
